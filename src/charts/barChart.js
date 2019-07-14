@@ -2,6 +2,45 @@ import * as d3 from 'd3';
 
 import './barChart.css';
 
+/**
+ * @typedef BarData
+ * @type {Object[]}
+ * @property {String} letter        Name of the letter (required)
+ * @property {Number} frequency     Value of its frequency (required)
+ *
+ * @example
+ * [
+ *     {
+ *         letter: 'A',
+ *         frequency: 0.08167
+ *     },
+ *     {
+ *         letter: 'B',
+ *         frequency: 0.01492
+ *     }
+ * ]
+ */
+
+/**
+ * Bar Chart Reusable API component that renders a
+ * simple and configurable bar chart.
+ *
+ * @module Bar
+ * @tutorial bar
+ * @requires d3
+ *
+ * @example
+ * const barChart = bar();
+ *
+ * barChart
+ *     .height(500)
+ *     .width(800);
+ *
+ * d3Selection.select('.css-selector')
+ *     .datum(dataset)
+ *     .call(barChart);
+ *
+ */
 function bar() {
     let data;
     let svg;
@@ -27,7 +66,12 @@ function bar() {
     const getFrequency = ({frequency}) => frequency;
     const getLetter = ({letter}) => letter;
 
-
+    /**
+     * This function creates the chart using the selection as container
+     * @param  {D3Selection} _selection     A d3 selection that represents
+     *                                      the container(s) where the chart(s) will be rendered
+     * @param {BarData} _data               The data to attach and generate the chart
+     */
     function exports(_selection){
         _selection.each(function(_data){
             data = _data;
@@ -42,7 +86,10 @@ function bar() {
         });
     }
 
-    // Building Blocks
+    /**
+     * Creates the d3 x and y axes, setting orientations
+     * @private
+     */
     function buildAxes(){
         xAxis = d3.axisBottom(xScale);
 
@@ -50,6 +97,11 @@ function bar() {
             .ticks(10, '%');
     }
 
+    /**
+     * Builds containers for the chart, the axes and a wrapper for all of them
+     * Also applies the Margin convention
+     * @private
+     */
     function buildContainerGroups(){
         let container = svg
           .append('g')
@@ -70,6 +122,10 @@ function bar() {
             .classed('y-axis-group axis', true);
     }
 
+    /**
+     * Creates the x and y scales of the graph
+     * @private
+     */
     function buildScales(){
         xScale = d3.scaleBand()
             .rangeRound([0, chartWidth])
@@ -81,6 +137,11 @@ function bar() {
             .domain([0, d3.max(data, getFrequency)]);
     }
 
+    /**
+     * Builds the SVG element that will contain the chart
+     * @param  {HTMLElement} container DOM element that will work as the container of the graph
+     * @private
+     */
     function buildSVG(container){
         if (!svg) {
             svg = d3.select(container)
@@ -94,6 +155,11 @@ function bar() {
             .attr('height', height);
     }
 
+    /**
+     * Draws the x and y axis on the svg object within their
+     * respective groups
+     * @private
+     */
     function drawAxes(){
         svg.select('.x-axis-group.axis')
             .attr('transform', `translate(0,${chartHeight})`)
@@ -109,6 +175,10 @@ function bar() {
                 .text('Frequency');
     }
 
+    /**
+     * Uses D3.js enter/update/exit patter to draw the bars along the x axis
+     * @return {void}
+     */
     function drawBars(){
         let bars = svg.select('.chart-group').selectAll('.bar')
             .data(data);
@@ -141,6 +211,12 @@ function bar() {
     }
 
     // API
+    /**
+     * Gets or Sets the height of the chart
+     * @param  {Number} [_x=500]    Desired height for the chart
+     * @return {Number | Module}    Current height or Chart module to chain calls
+     * @public
+     */
     exports.height = function(_x) {
         if (!arguments.length) {
             return height;
@@ -150,6 +226,12 @@ function bar() {
         return this;
     };
 
+    /**
+     * Gets or Sets the margin of the chart
+     * @param  {Object} _x          Margin object to get/set, either complete of containing one direction
+     * @return {Object | Module}    Current margin or Chart module to chain calls
+     * @public
+     */
     exports.margin = function(_x) {
         if (!arguments.length) {
             return margin;
@@ -162,12 +244,26 @@ function bar() {
         return this;
     };
 
+    /**
+     * Exposes an 'on' method that acts as a bridge with the event dispatcher
+     * We are going to expose this events:
+     * customMouseOver, customMouseMove, customMouseOut, and customMouseClick
+     *
+     * @return {Module} Bar Chart
+     * @public
+     */
     exports.on = function() {
         let value = dispatcher.on.apply(dispatcher, arguments);
 
         return value === dispatcher ? exports : value;
     };
 
+    /**
+     * Gets or Sets the width of the chart
+     * @param  {Number} [_x=960]        Desired width for the graph
+     * @return {Number | Module}        Current width or Chart module to chain calls
+     * @public
+     */
     exports.width = function(_x) {
         if (!arguments.length) {
             return width;
