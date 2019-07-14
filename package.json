@@ -1,0 +1,61 @@
+{
+  "name": "pro-d3-documenting",
+  "version": "1.0.1",
+  "description": "Demo library for the documenting chapter on Pro D3.js",
+  "main": "dist/proD3Building.min.js",
+  "browserslist": "defaults, IE 10",
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "debug": true
+        }
+      ]
+    ]
+  },
+  "scripts": {
+    "test": "karma start --env=test",
+    "dev": "webpack-dev-server --env=dev",
+    "build": "webpack --config webpack.config.js --env=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Golodhros/pro-d3-documenting.git"
+  },
+  "keywords": [
+    "d3.js",
+    "build",
+    "package",
+    "npm"
+  ],
+  "author": "Marcos Iglesias Valle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Golodhros/pro-d3-documenting/issues"
+  },
+  "homepage": "https://github.com/Golodhros/pro-d3-documenting#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.0.0",
+    "d3": "^5.9.7",
+    "html-webpack-plugin": "^3.2.0",
+    "istanbul-instrumenter-loader": "^3.0.1",
+    "karma": "4.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.2",
+    "karma-jasmine": "2.0.1",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^4.0.2",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-merge": "^4.2.1"
+  },
+  "peerDependencies": {
+    "d3": "^5.9.7"
+  }
+}

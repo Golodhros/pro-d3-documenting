@@ -1,0 +1,14 @@
+.bar-chart {}
+
+.bar {
+    fill: indigo;
+}
+
+.bar:hover {
+    fill: mediumpurple;
+    cursor: pointer;
+}
+
+.axis--x path {
+    display: none;
+}
