@@ -17,7 +17,8 @@
   "scripts": {
     "test": "karma start --env=test",
     "dev": "webpack-dev-server --env=dev",
-    "build": "webpack --config webpack.config.js --env=production"
+    "build": "webpack --config webpack.config.js --env=production",
+    "docs": "jsdoc2md -c jsdoc.conf.json src/charts/*.js > docs/API.md"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
     "d3": "^5.9.7",
     "html-webpack-plugin": "^3.2.0",
     "istanbul-instrumenter-loader": "^3.0.1",
+    "jsdoc-to-markdown": "^5.0.0",
     "karma": "4.1.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-coverage": "^1.1.2",
