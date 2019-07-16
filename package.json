@@ -17,7 +17,10 @@
   "scripts": {
     "test": "karma start --env=test",
     "dev": "webpack-dev-server --env=dev",
-    "build": "webpack --config webpack.config.js --env=production"
+    "build": "webpack --config webpack.config.js --env=production",
+    "docs": "documentation build --config documentation.yml src/charts/** -f html -o docs",
+    "docs:serve": "documentation serve src/index.js",
+    "docs:lint": "documentation lint src/index.js"
   },
   "repository": {
     "type": "git",
@@ -41,6 +44,7 @@
     "babel-loader": "^8.0.6",
     "css-loader": "^3.0.0",
     "d3": "^5.9.7",
+    "documentation": "^12.0.1",
     "html-webpack-plugin": "^3.2.0",
     "istanbul-instrumenter-loader": "^3.0.1",
     "karma": "4.1.0",

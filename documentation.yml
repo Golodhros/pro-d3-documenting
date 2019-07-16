@@ -1,0 +1,7 @@
+toc:
+  - Bar
+  - name: Charts
+    children:
+      - Bar
+      - name: Bar Demo
+        file: src/demos/index.html
