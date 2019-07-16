@@ -1,0 +1,166 @@
+:root {
+  /* Color palette from color.adobe.com by Marco Goran Romano */
+  --color-electric-blue-hex: #030BA6;
+  --color-blue-hex: #03178C;
+  --color-grayist-blue-hex: #0367A6;
+  --color-yellow-hex: #F2A81D;
+  --color-orange-hex: #F27F1B;
+
+  --color-black: #222;
+  --color-white: #fff;
+  --color-broken-white: #f5f5f5;
+  --color-light-gray: #ddd;
+}
+
+.documentation {
+  font-family: Helvetica, sans-serif;
+  color: var(--color-black);
+  line-height: 1.5;
+  background: var(--color-broken-white);
+}
+
+.project-title {
+  color: var(--color-blue-hex);
+}
+
+.black {
+  color: var(--color-black);
+}
+
+.bg-white {
+  background-color: var(--color-white);
+}
+
+h4 {
+  margin: 20px 0 10px 0;
+}
+
+.documentation h3 {
+  color: var(--color-black);
+}
+
+.border-bottom {
+  border-color: var(--color-light-gray);
+}
+
+a {
+  color: var(--color-yellow-hex);
+  text-decoration: none;
+}
+
+.documentation a[href]:hover {
+  color: var(--color-orange-hex);
+  text-decoration: underline;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.py1-ul li {
+  padding: 5px 0;
+}
+
+.max-height-100 {
+  max-height: 100%;
+}
+
+.height-viewport-100 {
+  height: 100vh;
+}
+
+section:target h3 {
+  font-weight: 700;
+}
+
+.documentation td,
+.documentation th {
+  padding: 0.25rem 0.25rem;
+}
+
+h1:hover .anchorjs-link,
+h2:hover .anchorjs-link,
+h3:hover .anchorjs-link,
+h4:hover .anchorjs-link {
+  opacity: 1;
+}
+
+.fix-3 {
+  width: 25%;
+  max-width: 244px;
+}
+
+.fix-3 {
+  width: 25%;
+  max-width: 244px;
+}
+
+@media (min-width: 52em) {
+  .fix-margin-3 {
+    margin-left: 25%;
+  }
+}
+
+.pre,
+pre,
+code,
+.code {
+  font-family: Source Code Pro, Menlo, Consolas, Liberation Mono, monospace;
+  font-size: 14px;
+}
+
+.fill-light {
+  background: var(--color-broken-white);
+}
+
+.width2 {
+  width: 1rem;
+}
+
+.input {
+  font-family: inherit;
+  display: block;
+  width: 100%;
+  height: 2rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-light-gray);
+  font-size: 0.875rem;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.prose table th,
+.prose table td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid var(--color-light-gray);
+}
+
+.prose table th:nth-child(1) {
+  border-right: none;
+}
+.prose table th:nth-child(2) {
+  border-left: none;
+}
+
+.prose table {
+  border: 1px solid var(--color-light-gray);
+}
+
+.prose-big {
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.quiet {
+  opacity: 0.7;
+}
+
+.minishadow {
+  box-shadow: 2px 2px 10px var(--color-light-gray);
+}

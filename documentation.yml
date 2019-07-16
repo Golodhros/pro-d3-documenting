@@ -1,5 +1,6 @@
 toc:
-  - Bar
+  - name: Homepage
+    file: README.md
   - name: Charts
     children:
       - Bar

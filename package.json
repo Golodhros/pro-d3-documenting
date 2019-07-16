@@ -18,8 +18,8 @@
     "test": "karma start --env=test",
     "dev": "webpack-dev-server --env=dev",
     "build": "webpack --config webpack.config.js --env=production",
-    "docs": "documentation build --config documentation.yml src/charts/** -f html -o docs",
-    "docs:serve": "documentation serve src/index.js",
+    "docs": "documentation build --config documentation.yml src/charts/** -f html -o docs --theme src/docs/theme",
+    "docs:serve": "documentation serve src/charts/** -f html --config documentation.yml --theme src/docs/theme",
     "docs:lint": "documentation lint src/index.js"
   },
   "repository": {
