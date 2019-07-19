@@ -49,6 +49,7 @@ const devConfig = merge([
         ],
     },
     parts.cssLoader(),
+    parts.ESLintLoader(),
     parts.babelLoader(),
 ]);
 

@@ -14,13 +14,34 @@
       ]
     ]
   },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 8,
+      "sourceType": "module"
+    },
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "rules": {
+      "require-jsdoc": ["error"],
+      "valid-jsdoc": ["warn", {
+        "prefer": {
+          "requireReturn": "false",
+          "requireReturnType": "false"
+        }
+      }]
+    }
+  },
   "scripts": {
     "test": "karma start --env=test",
     "dev": "webpack-dev-server --env=dev",
     "build": "webpack --config webpack.config.js --env=production",
     "docs": "documentation build --config documentation.yml src/charts/** -f html -o docs --theme src/docs/theme",
     "docs:serve": "documentation serve src/charts/** -f html --config documentation.yml --theme src/docs/theme",
-    "docs:lint": "documentation lint src/index.js"
+    "docs:lint": "documentation lint src/index.js",
+    "lint": "eslint src/"
   },
   "repository": {
     "type": "git",
@@ -41,10 +62,13 @@
   "devDependencies": {
     "@babel/core": "^7.5.0",
     "@babel/preset-env": "^7.5.0",
+    "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.0.0",
     "d3": "^5.9.7",
     "documentation": "^12.0.1",
+    "eslint": "^6.0.1",
+    "eslint-loader": "^2.2.1",
     "html-webpack-plugin": "^3.2.0",
     "istanbul-instrumenter-loader": "^3.0.1",
     "karma": "4.1.0",

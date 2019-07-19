@@ -32,6 +32,7 @@ import './barChart.css';
  * @requires d3-dispatch
  * @requires d3-scale
  * @requires d3-selection
+ * @returns {Module} Factory function to create a new chart
  *
  * @example
  * var barChart = bar();

@@ -20,6 +20,19 @@ exports.cssLoader = () => ({
         ],
     },
 });
+exports.ESLintLoader = () => ({
+    module: {
+        rules: [
+            {
+                enforce: 'pre',
+                test: /\.js$/,
+                include: /src/,
+                exclude: /node_modules/,
+                use: ['eslint-loader'],
+            }
+        ]
+    }
+});
 exports.istanbulLoader = () => ({
     module: {
         rules: [
