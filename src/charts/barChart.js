@@ -178,6 +178,7 @@ function bar() {
     /**
      * Uses D3.js enter/update/exit patter to draw the bars along the x axis
      * @return {void}
+     * @private
      */
     function drawBars(){
         let bars = svg.select('.chart-group').selectAll('.bar')
