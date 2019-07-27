@@ -4,5 +4,6 @@ toc:
   - name: Charts
     children:
       - Bar
-      - name: Bar Demo
-        file: src/demos/index.html
+  - name: Data Schemas
+    children:
+      - bar

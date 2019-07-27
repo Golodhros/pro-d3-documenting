@@ -22,15 +22,19 @@ import './barChart.css';
  */
 
 /**
- * Bar Chart Reusable API component that renders a
+ * Bar Chart reusable API class that renders a
  * simple and configurable bar chart.
  *
  * @module Bar
  * @tutorial bar
- * @requires d3
+ * @requires d3-array
+ * @requires d3-axis
+ * @requires d3-dispatch
+ * @requires d3-scale
+ * @requires d3-selection
  *
  * @example
- * const barChart = bar();
+ * var barChart = bar();
  *
  * barChart
  *     .height(500)
@@ -71,6 +75,7 @@ function bar() {
      * @param  {D3Selection} _selection     A d3 selection that represents
      *                                      the container(s) where the chart(s) will be rendered
      * @param {BarData} _data               The data to attach and generate the chart
+     * @private
      */
     function exports(_selection){
         _selection.each(function(_data){
@@ -139,7 +144,7 @@ function bar() {
 
     /**
      * Builds the SVG element that will contain the chart
-     * @param  {HTMLElement} container DOM element that will work as the container of the graph
+     * @param  {HTMLElement} container  DOM element that will work as the container of the graph
      * @private
      */
     function buildSVG(container){
@@ -178,6 +183,7 @@ function bar() {
     /**
      * Uses D3.js enter/update/exit patter to draw the bars along the x axis
      * @return {void}
+     * @private
      */
     function drawBars(){
         let bars = svg.select('.chart-group').selectAll('.bar')
